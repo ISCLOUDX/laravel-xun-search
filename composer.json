@@ -1,5 +1,5 @@
 {
-    "name": "davin-bao/laravel-xun-search",
+    "name": "ISCLOUDX/laravel-xun-search",
     "description": "Laravel 5 package for full-text search over Eloquent models based on XunSearch.",
     "keywords": ["laravel", "xunsearch", "eloquent", "search", "fulltext"],
     "license": "MIT",
