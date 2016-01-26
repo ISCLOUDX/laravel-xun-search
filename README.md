@@ -1,26 +1,27 @@
-Laravel 5.1 XunSearch
+Laravel 5.2 XunSearch
 ==============
 
-[![Latest Stable Version](https://poser.pugx.org/davin-bao/laravel-xun-search/v/stable.png)](https://packagist.org/packages/davin-bao/laravel-xun-search)
-[![Latest Unstable Version](https://poser.pugx.org/davin-bao/laravel-xun-search/v/unstable.png)](https://packagist.org/packages/davin-bao/laravel-xun-search)
-[![License](https://poser.pugx.org/davin-bao/laravel-xun-search/license.png)](https://packagist.org/packages/davin-bao/laravel-xun-search)
-[![Total Downloads](https://poser.pugx.org/davin-bao/laravel-xun-search/downloads)](https://packagist.org/packages/davin-bao/laravel-xun-search)
+XunSearch是一个开源免费、高性能、多功能
+简单易用的专业全文检索技术方案
+帮助一般开发者针对既有的海量数据，快速而方便地建立自己的全文搜索引擎。全文检索可以帮助您降低服务器搜索负荷、极大程度的提高搜索速度和用户体验
+本package根据davin-bao/laravel-xun-search修改得来的
+在使用这个包之前您需要先参照http://www.xunsearch.com/doc/php/guide/start.installation
+进行安装Xunsearch后端程序
 
-Laravel 5.1 package for full-text search over Eloquent models based on XunSearch.
+## 安装说明
 
-## Installation
-
-Require this package in your composer.json and run composer update:
+应该执行composer require iscloudx.laravel-xun-search dev-master --dev 来安装这个包
+添加依赖到 composer.json 然后运行命令 composer update:
 
 ```json
 {
 	"require": {
-        "ISCLOUDX/laravel-xun-search": "dev-master"
+        "iscloudx/laravel-xun-search": "dev-master"
 	}
 }
 ```
 
-After updating composer, add the ServiceProvider to the providers array in `app/config/app.php`
+然后您应该添加到 DavinBao\LaravelXunSearch\ServiceProvider::class 到 `app/config/app.php` 的 providers
 
 ```php
 'providers' => [
@@ -28,22 +29,22 @@ After updating composer, add the ServiceProvider to the providers array in `app/
 ],
 ```
 
-If you want to use the facade to search, add this to your facades in `app/config/app.php`:
+和 'Search' => DavinBao\LaravelXunSearch\Facade::class, 到 `app/config/app.php` 的 aliases
 
 ```php
 'aliases' => [
 	'Search' => DavinBao\LaravelXunSearch\Facade::class,
 ],
 ```
-## Configuration 
+## 配置项 
 
-Publish the config file into your project by running:
+运行下面这个命令将配置项发布到项目下
 
 ```bash
 php artisan vendor:publish --provider="DavinBao\LaravelXunSearch\ServiceProvider"
 ```
-###Basic
-In published config file add descriptions for models which need to be indexed, for example:
+###基本
+然后您应该得到类似下面的结果
 
 ```php
 
@@ -111,20 +112,20 @@ In published config file add descriptions for models which need to be indexed, f
 ## Usage
 ### Artisan commands
 #### Initialize or rebuild search index
-For building of search index run:
+重建索引应该使用下面这个命令
 
 ```bash
 php artisan search:rebuild --verbose
 ```
 #### Clear search index
-For clearing of search index run:
+清空索引使用下面这个命令
 
 ```bash
 php artisan search:clear
 ```
 #### Filtering of models in search results 
-For filtering of models in search results each model's class can implements `SearchableInterface`.
-For example:
+应该为您的模型实现 `SearchableInterface`.
+例如:
 
 ```php
 
@@ -150,7 +151,7 @@ class Dummy extends Model implements SearchableInterface
 
 ### Partial updating of search index
 For register of necessary events (save/update/delete) `use DavinBao\LaravelXunSearch\Model\SearchTrait` in target model:
-
+使用SearchTrait是必须的，不然你得不到任何你想要的结果
 ```php
 
     use Illuminate\Database\Eloquent\Model;
@@ -231,6 +232,7 @@ foreach ($docs as $doc)
 }
 
 ```
+享受高速的全文查询吧
 ##
 ## License
 Package licenced under the MIT license.
