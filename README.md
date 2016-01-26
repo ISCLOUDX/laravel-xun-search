@@ -15,7 +15,7 @@ Require this package in your composer.json and run composer update:
 ```json
 {
 	"require": {
-        "davin-bao/laravel-xun-search": "dev-master"
+        "ISCLOUDX/laravel-xun-search": "dev-master"
 	}
 }
 ```
