@@ -28,7 +28,6 @@ class RebuildCommand extends Command
 
         /** @var Search $search */
         $search = App::make('search');
-      dd(App\Models\User::getSearch()->addQuery("admin")->count());
         // 结束上次可能出现异常的重建索引
         $search->index()->stopRebuild();
         // 宣布开始重建索引
@@ -69,10 +68,5 @@ class RebuildCommand extends Command
         }
         // 告诉服务器重建完比
         $search->index()->endRebuild();
-        sleep(5);
-
-        //输出所有 Document 数量
-        echo $search->search()->getDbTotal();
-
     }
 }
