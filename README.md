@@ -4,8 +4,11 @@ Laravel 5.2 XunSearch
 XunSearch是一个开源免费、高性能、多功能
 简单易用的专业全文检索技术方案
 帮助一般开发者针对既有的海量数据，快速而方便地建立自己的全文搜索引擎。全文检索可以帮助您降低服务器搜索负荷、极大程度的提高搜索速度和用户体验
+
 本package根据davin-bao/laravel-xun-search修改得来的
+
 在使用这个包之前您需要先参照http://www.xunsearch.com/doc/php/guide/start.installation
+
 进行安装Xunsearch后端程序
 
 ## 安装说明
